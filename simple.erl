@@ -1,4 +1,5 @@
 -module(simple).
+-author("Joe Chasinga <jo.chasinga@gmail.com>").
 -export([
 	server/1,
 	client/2,
