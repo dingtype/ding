@@ -1,4 +1,4 @@
-# erlchat
+# simplechat
 
 Getting started with sending messages around.
 
@@ -10,21 +10,23 @@ Install Erlang and OTP
 
 Make sure to `cd erlchat`.
 
-Then run a server node. The node name needs to be explicitly `server` (it's hardcoded as `server@yourhostname`) and compile `simple` module.
+Then run a server node. The node name needs to be explicitly `server` (it's hardcoded as `server@yourhostname`) and compile the `server` module.
 
-```shell
+```bash
 
+# This is the server node
 $ erl -sname server
-> c(simple).
+> c(server).
 
 ```
 
-Then run one or more client nodes and compile the module
+Then run one or more client nodes and compile the `client` module
 
-```shell
+```bash
 
+# This is the client node
 $ erl -sname c1
-> c(simple).
+> c(client).
 
 ```
 
@@ -32,7 +34,7 @@ On the server node, start the server loop
 
 ```erlang
 
-> simple:start_server().
+> server:start().
 
 ```
 
@@ -40,7 +42,7 @@ On the client node, start the client loop
 
 ```erlang
 
-> simple:start_client(server@yourhostname, "userA").
+> client:logon(server@yourhostname, "userA").
 
 ```
 
@@ -48,18 +50,24 @@ Start sending messages to other clients with
 
 ```erlang
 
-> simple:client_send(server@yourhostname, "Hello everyone", "userA").
+> client:send(server@yourhostname, "Hello everyone", "userA").
 
 ```
 
-You can ping users, slack style
+You can ping users slack style
 
 ```erlang
 
-> simple:client_send(server@yourhostname, "@userB @userC whatup?", "userA").
+> client:send(server@yourhostname, "@userB hello @userC whatup?", "userA").
 
 ```
 
+To logoff
 
+```erlang
+
+> client:logoff(server@yourhostname, "userA").
+
+```
 
 
