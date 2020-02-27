@@ -1,6 +1,12 @@
-# simplechat
+# ding
 
-Getting started with sending messages around.
+A distributed messaging system in which the server can be handed over or optionally scrambled.
+
+## concept
+
+Think of a team sport like basketball where the players are free to pass the ball to any of the team member when blocked.
+
+This is an experiment with building a messaging network in which the server role can be passed around at will, either by coercion (i.e. when the server node dies and a server is immediately required) or majority vote.
 
 ## setup
 
